@@ -1,0 +1,28 @@
+<div [ngStyle]="{ width: getScreenWidth, height: getScreenHeight }">
+  <as-split direction="horizontal">
+    <as-split-area [size]="40">
+      <as-split direction="vertical">
+        <as-split-area>
+          <p>Area1</p>
+        </as-split-area>
+        <as-split-area>
+          <p><app-video-screen> </app-video-screen></p>
+        </as-split-area>
+        <as-split-area>
+          <p>Area2</p>
+        </as-split-area>
+      </as-split>
+    </as-split-area>
+
+    <as-split-area [size]="60">
+      <as-split direction="vertical">
+        <as-split-area [size]="25">
+          <p><app-sold-item-screen></app-sold-item-screen></p>
+        </as-split-area>
+        <as-split-area [size]="75">
+          <p><app-video-screen></app-video-screen></p>
+        </as-split-area>
+      </as-split>
+    </as-split-area>
+  </as-split>
+</div>

@@ -1,0 +1,2 @@
+.parent { display: -ms-flex; display: -webkit-flex; display: flex; }
+.parent>div { flex:1; }
