@@ -6,8 +6,8 @@ import { DepoGiris } from '../models/DepoGiris';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
-  apiUrl: string = 'http://localhost:3000/categories';
+export class DepoGirisService {
+  apiUrl: string = 'https://localhost:7090/Trade/GetItemstoBeSold';
 
   constructor(private httpClient: HttpClient) {}
 

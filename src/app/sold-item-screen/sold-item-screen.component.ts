@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { DepoGiris } from '../models/DepoGiris';
+import { DepoGirisService } from '../services/DepoGirisService';
 
 @Component({
   selector: 'app-sold-item-screen',
@@ -23,11 +24,15 @@ export class SoldItemScreenComponent implements OnInit, OnDestroy {
     // });
   }
 
-  getProducts() {
+  constructor(private depoGirisService : DepoGirisService){
+
+  }
+
+  getItemsList() {
     this.loading = true;
-    this.productService.getProducts().subscribe(
+    this.depoGirisService.getDepoGiris.subscribe(
       (response) => {
-        this.products = response;
+        this.depoGiris = response;
         this.loading = false;
       },
       (error) => {
@@ -36,23 +41,19 @@ export class SoldItemScreenComponent implements OnInit, OnDestroy {
     );
   }
 
-  getProductsByCategory(categoryId: number) {
-    this.loading = true;
-    this.productService.getProductsByCategory(categoryId).subscribe(
-      (response) => {
-        this.products = response;
-        this.loading = false;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    this.toastrService.success('Sepete eklendi', product.name);
-  }
+  // getProductsByCategory(categoryId: number) {
+  //   this.loading = true;
+  //   this.productService.getProductsByCategory(categoryId).subscribe(
+  //     (response) => {
+  //       this.products = response;
+  //       this.loading = false;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+ 
 
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
