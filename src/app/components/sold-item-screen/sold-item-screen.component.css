@@ -1,0 +1,13 @@
+.depoGiris td,
+.depoGiris tr {
+  font-size: 16px;
+  font-size: 1vw;
+  border-color: black;
+  border: black;
+  font-weight: bold;
+}
+
+.isCompleted {
+  background: red;
+  color: white;
+}

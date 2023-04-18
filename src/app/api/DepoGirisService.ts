@@ -7,7 +7,7 @@ import { DepoGiris } from '../models/DepoGiris';
   providedIn: 'root',
 })
 export class DepoGirisService {
-  apiUrl: string = 'https://localhost:7090/Trade/GetItemstoBeSold';
+  apiUrl: string = API_BASE_URL + 'Trade/GetItemstoBeSold';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularSplitModule } from 'angular-split';
-import { VideoScreenComponent } from './video-screen/video-screen.component';
-import { MainScreenComponent } from './main-screen/main-screen.component';
-import { SoldItemScreenComponent } from './sold-item-screen/sold-item-screen.component';
+import { VideoScreenComponent } from './components/video-screen/video-screen.component';
+import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { SoldItemScreenComponent } from './components/sold-item-screen/sold-item-screen.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -19,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
     SoldItemScreenComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AngularSplitModule,

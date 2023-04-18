@@ -1,0 +1,61 @@
+<div *ngIf="loading == true" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden"></span>
+</div>
+
+<table class="table table-bordered depoGiris" style="overflow-x: scroll">
+  <thead>
+    <!-- @if (Model.Any())
+        { -->
+    <tr>
+      <th>UrNo</th>
+      <th>CicekKodu</th>
+      <th>Cinsi</th>
+      <th>D_SiraNo</th>
+      <th>OzellikAdi1</th>
+      <th>OzellikAdi2</th>
+      <th>OzellikAdi3</th>
+      <th>OzellikAdi4</th>
+      <th>OzellikAdi5</th>
+      <th>OzellikAdi6</th>
+      <th>OzellikAdi7</th>
+    </tr>
+    <!-- } -->
+  </thead>
+  <tbody>
+    <tr *ngFor="let modelItem of depoGiris">
+      <td>
+        {{ modelItem.urNo }}
+      </td>
+      <td>
+        {{ modelItem.cicekKodu }}
+      </td>
+      <td>
+        {{ modelItem.cinsi }}
+      </td>
+      <td>
+        {{ modelItem.d_SiraNo }}
+      </td>
+      <td>
+        {{ modelItem.ozellik1 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik2 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik3 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik4 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik5 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik6 }}
+      </td>
+      <td>
+        {{ modelItem.ozellik7 }}
+      </td>
+    </tr>
+  </tbody>
+</table>

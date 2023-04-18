@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { DepoGiris } from '../models/DepoGiris';
-import { NotificationService } from '../services/NotificationService';
+import { DepoGiris } from '../../models/DepoGiris';
+import { NotificationService } from '../../services/NotificationService';
+import { DepoGirisService } from '../../api/DepoGirisService';
 
 @Component({
   selector: 'app-sold-item-screen',
@@ -9,11 +10,14 @@ import { NotificationService } from '../services/NotificationService';
 })
 export class SoldItemScreenComponent implements OnInit {
   depoGiris: DepoGiris[] | undefined;
-  loading: boolean = false;
   filterText: string = '';
+  loading: boolean = false;
   isPressed: boolean = false;
 
-  constructor(private notify: NotificationService) {}
+  constructor(
+    private notify: NotificationService,
+    private depoGirisService: DepoGirisService
+  ) {}
 
   @HostListener('window:keyup', ['$event'])
   @HostListener('window:keydown', ['$event'])
@@ -26,7 +30,7 @@ export class SoldItemScreenComponent implements OnInit {
         if (!this.isPressed) {
           this.isPressed = true;
           this.notify.showSuccess(event.key, 'Tuşa Basıldı');
-                    
+
           console.log(event);
         }
       }
@@ -34,6 +38,8 @@ export class SoldItemScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getItemList();
+
     // this.activatedRoute.params.subscribe((params) => {
     //   if (params['categoryId']) {
     //     this.getProductsByCategory(params['categoryId']);
@@ -43,18 +49,18 @@ export class SoldItemScreenComponent implements OnInit {
     // });
   }
 
-  // getProducts() {
-  //   this.loading = true;
-  //   this.productService.getProducts().subscribe(
-  //     (response) => {
-  //       this.products = response;
-  //       this.loading = false;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  getItemList() {
+    this.loading = true;
+    this.depoGirisService.getDepoGiris().subscribe(
+      (response) => {
+        this.depoGiris = response;
+        this.loading = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
   // getProductsByCategory(categoryId: number) {
   //   this.loading = true;
