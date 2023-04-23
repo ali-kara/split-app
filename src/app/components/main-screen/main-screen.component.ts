@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { SplitComponent } from 'angular-split';
 
 @Component({
   selector: 'app-main-screen',
@@ -6,6 +7,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./main-screen.component.css'],
 })
 export class MainScreenComponent {
+  @ViewChild(SplitComponent) split: SplitComponent | undefined;
+
   public getScreenWidth: any;
   public getScreenHeight: any;
 

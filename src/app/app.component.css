@@ -37,12 +37,12 @@ body:after {
     src: local('Seven Segment'), url('../fonts/seven_segment.woff') format('woff');
 }*/
 
-/* @font-face {
+@font-face {
   font-family: "Seven Segment";
   font-style: normal;
   font-weight: 400;
-  src: local("Seven Segment"), url("../fonts/digit.ttf") format("truetype");
-} */
+  src: local("Seven Segment"), url("../assets/fonts/Digit.TTF");
+}
 
 /*@font-face {
     font-family: 'seven_segment';
