@@ -37,6 +37,10 @@ export class SoldItemScreenComponent implements OnInit {
     }
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  } 
+
   ngOnInit(): void {
     this.getItemList();
 
@@ -56,8 +60,9 @@ export class SoldItemScreenComponent implements OnInit {
         this.depoGiris = response;
         this.loading = false;
       },
-      (error) => {
-        console.log(error);
+      async (error) => {
+       await this.delay(10000);
+        this.getItemList();
       }
     );
   }

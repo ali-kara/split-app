@@ -1,0 +1,10 @@
+div {
+  background-color: black;
+  color: black;
+}
+
+.LiveDisplay {
+  font-family: "Seven Segment", sans-serif;
+  font-size: 96px;
+  color: greenyellow;
+}

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sales-info-screen.component.css']
 })
 export class SalesInfoScreenComponent {
-  
+  durum = "";
+  fiyat = "";
 }

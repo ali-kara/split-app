@@ -3,15 +3,19 @@
     <as-split-area [size]="50">
       <as-split direction="vertical">
         <as-split-area>
-          <as-split direction="horizontal">
-            <as-split-area [size]="50"> Area1 </as-split-area>
-            <as-split-area [size]="50">
-              <p><app-sold-item-screen></app-sold-item-screen></p>
+          <as-split [gutterSize]="3" direction="horizontal">
+            <as-split-area [size]="70">
+              <app-sales-info-screen></app-sales-info-screen>
             </as-split-area>
+            <as-split-area [size]="30"> </as-split-area>
           </as-split>
         </as-split-area>
-        <as-split-area> Area2 </as-split-area>
-        <as-split-area> Area3 </as-split-area>
+        <as-split-area>
+          <app-sales-info-screen></app-sales-info-screen>
+        </as-split-area>
+        <as-split-area>
+          <button (click)="refreshButon()">RefreshVideo</button>
+        </as-split-area>
       </as-split>
     </as-split-area>
 

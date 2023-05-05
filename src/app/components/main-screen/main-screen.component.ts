@@ -1,5 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { SplitComponent } from 'angular-split';
+import { VideoScreenComponent } from '../video-screen/video-screen.component';
 
 @Component({
   selector: 'app-main-screen',
@@ -8,6 +9,10 @@ import { SplitComponent } from 'angular-split';
 })
 export class MainScreenComponent {
   @ViewChild(SplitComponent) split: SplitComponent | undefined;
+
+  @ViewChild(VideoScreenComponent) _videoScreen:
+    | VideoScreenComponent
+    | undefined;
 
   public getScreenWidth: any;
   public getScreenHeight: any;
@@ -21,5 +26,9 @@ export class MainScreenComponent {
   onWindowResize() {
     this.getScreenWidth = window.innerWidth + 'px';
     this.getScreenHeight = window.innerHeight + 'px';
+  }
+
+  refreshButon() {
+    this._videoScreen?.RefreshVideo("");
   }
 }

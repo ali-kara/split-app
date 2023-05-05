@@ -11,3 +11,17 @@
   background: red;
   color: white;
 }
+
+/* .center_loading{
+    position: absolute;
+    top: "50%";
+    left: "50%";
+    margin-top: "-50px";
+    margin-left: "-50px";
+} */
+    split-area > div {
+      position: relative;
+      background: red;
+      height: 100%;
+      overflow: auto;
+    }
