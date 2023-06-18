@@ -1,0 +1,49 @@
+<app-side-menu></app-side-menu>
+
+<div class="gridButton">
+  <div class="jumbotronBottom">
+    <button class="btn btn-info" (click)="logout()">Logout</button>
+
+    <button
+      id="btnSatilanlar"
+      class="btn btn-info"
+      data-modal_id="Modal-t1"
+      data-toggle="modal"
+    >
+      <i class="fa-solid fa-turkish-lira-sign"></i>
+      Satılanlar
+    </button>
+
+    <button (click)="refreshButon()" class="btn btn-info">
+      <i class="fa-solid fa-arrows-rotate"></i>
+      Yayını Yenile
+    </button>
+
+    <button (click)="openChat()" class="btn btn-info">
+      <i class="fa-solid fa-comment"></i>
+      Yardım
+    </button>
+
+    <div
+      id="Modal-t1"
+      class="modal modal-right fade"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    id="btnMenu"
+    type="button"
+    data-bs-toggle="modal"
+    data-bs-target="#modal_mySidenav"
+    class="btn btn-success btn-circle btn-xl"
+  >
+    <i class="fa fa-solid fa-bars"></i>
+  </button>
+</div>

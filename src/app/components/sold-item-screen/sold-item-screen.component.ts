@@ -1,45 +1,37 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { DepoGiris } from '../../models/DepoGiris';
-import { NotificationService } from '../../services/NotificationService';
-import { DepoGirisService } from '../../api/DepoGirisService';
+import { DepoGirisService } from 'src/app/api/DepoGirisService';
+import { BaseService } from 'src/app/api/BaseService';
 
 @Component({
   selector: 'app-sold-item-screen',
   templateUrl: './sold-item-screen.component.html',
   styleUrls: ['./sold-item-screen.component.css'],
 })
-export class SoldItemScreenComponent implements OnInit {
+export class SoldItemScreenComponent extends BaseService implements OnInit {
   depoGiris: DepoGiris[] | undefined;
   filterText: string = '';
-  loading: boolean = false;
   isPressed: boolean = false;
 
-  constructor(
-    private notify: NotificationService,
-    private depoGirisService: DepoGirisService
-  ) {}
+  constructor(private depoGirisService: DepoGirisService) {
+    super();
+  }
 
   @HostListener('window:keyup', ['$event'])
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (event.type == 'keyup') {
       this.isPressed = false;
-      this.notify.showError(event.key, 'Tuşa Kaldırıldı');
+      //this.notify.showError(event.key, 'Tuşa Kaldırıldı');
     } else {
-      if (event.key == KEY_CODE.SOLD_KEY) {
+      if (event.key == KEY_CODE.SOLD_KEY.toUpperCase()) {
         if (!this.isPressed) {
           this.isPressed = true;
-          this.notify.showSuccess(event.key, 'Tuşa Basıldı');
-
-          console.log(event);
+          this.toastr.showSuccess('', 'Tuşa Basıldı');
         }
       }
     }
   }
-
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  } 
 
   ngOnInit(): void {
     this.getItemList();
@@ -54,14 +46,14 @@ export class SoldItemScreenComponent implements OnInit {
   }
 
   getItemList() {
-    this.loading = true;
+    this.isLoading = true;
     this.depoGirisService.getDepoGiris().subscribe(
       (response) => {
         this.depoGiris = response;
-        this.loading = false;
+        this.isLoading = false;
       },
       async (error) => {
-       await this.delay(10000);
+        await this.delay(10000);
         this.getItemList();
       }
     );
@@ -87,7 +79,7 @@ export class SoldItemScreenComponent implements OnInit {
 }
 
 export enum KEY_CODE {
-  SOLD_KEY = 'w',
+  SOLD_KEY = 'Q',
   DOWN_ARROW = 40,
   RIGHT_ARROW = 39,
   LEFT_ARROW = 37,

@@ -1,23 +1,35 @@
 <div [ngStyle]="{ width: getScreenWidth, height: getScreenHeight }">
-  <as-split [gutterSize]="3" [disabled]="true" direction="horizontal">
+  <as-split [gutterSize]="3" direction="horizontal">
+   
+   
+   
+   <!-- Sol Sutun -->
     <as-split-area [size]="50">
       <as-split direction="vertical">
-        <as-split-area>
+        <as-split-area [size]="60">
           <as-split [gutterSize]="3" direction="horizontal">
-            <as-split-area [size]="70">
+            <as-split-area [size]="50">
               <app-sales-info-screen></app-sales-info-screen>
             </as-split-area>
-            <as-split-area [size]="30"> </as-split-area>
+            <as-split-area [size]="50"> </as-split-area>
           </as-split>
         </as-split-area>
-        <as-split-area>
-          <app-sales-info-screen></app-sales-info-screen>
-        </as-split-area>
-        <as-split-area>
-          <button (click)="refreshButon()">RefreshVideo</button>
+        <!-- <as-split-area> </as-split-area> -->
+        <as-split-area [size]="40">
+          <as-split direction="horizontal">
+            <as-split-area [size]="30">
+              <app-menu-screen></app-menu-screen>
+            </as-split-area>
+            <as-split-area [size]="70">
+              <app-flower-info-screen></app-flower-info-screen>
+            </as-split-area>
+          </as-split>
         </as-split-area>
       </as-split>
     </as-split-area>
+
+
+    <!-- Sag Sutun -->
 
     <as-split-area [size]="50">
       <as-split direction="vertical">
@@ -25,9 +37,12 @@
           <app-video-screen></app-video-screen>
         </as-split-area>
         <as-split-area [size]="50">
-          <p><app-sold-item-screen></app-sold-item-screen></p>
+          <app-sold-item-screen></app-sold-item-screen>
         </as-split-area>
       </as-split>
     </as-split-area>
+
+
+
   </as-split>
 </div>

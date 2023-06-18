@@ -29,7 +29,7 @@
       <div class="d-flex align-items-center justify-content-center w-100">
         <div class="row justify-content-center w-100">
           <div class="col-md-8 col-lg-6 col-xxl-3">
-            <div class="card mb-0">
+            <div class="card mb-0" style="filter: blur(100%)">
               <div class="card-body">
                 <a
                   href="#"
@@ -42,27 +42,49 @@
                   />
                 </a>
                 <p class="text-center">Canlı Satış Sistemi</p>
-                <form>
+                <form [formGroup]="form" (ngSubmit)="login()">
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"
+                    <!-- <label for="exampleInputEmail1" class="form-label"
                       >Kullanıcı Adı</label
-                    >
+                    > -->
                     <input
-                      type="email"
+                      type="text"
+                      formControlName="username"
+                      placeholder="Kullanıcı Adınız"
                       class="form-control"
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['username'].errors
+                      }"
                     />
+                    <div
+                      *ngIf="submitted && f['username'].errors"
+                      class="invalid-feedback"
+                    >
+                      <!-- <div *ngIf="f['username'].errors.['required']">
+                        Username is required
+                      </div> -->
+                    </div>
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label"
+                    <!-- <label for="exampleInputPassword1" class="form-label"
                       >Parola</label
-                    >
+                    > -->
+
                     <input
                       type="password"
+                      formControlName="password"
+                      placeholder="Parola"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['password'].errors
+                      }"
                     />
+                    <div
+                      *ngIf="submitted && f['password'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div>Password is required</div>
+                    </div>
                   </div>
                   <div
                     class="d-flex align-items-center justify-content-between mb-4"
@@ -82,12 +104,18 @@
                         Beni Hatırla
                       </label>
                     </div>
-                    <a class="text-primary fw-bold" href="./index.html"
-                      >Erişimde Problem Yaşıyorsunuz</a
+                  </div>
+
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-4"
+                  >
+                    <a class="text-primary fw-bold" {href="./index.html}"
+                      >Erişimde Problem mi Yaşıyorsunuz?</a
                     >
                   </div>
+
                   <a
-                    href="./index.html"
+                    (click)="login()"
                     class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
                     >Giriş Yap</a
                   >

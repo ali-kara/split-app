@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
@@ -16,6 +16,14 @@ import { SalesInfoScreenComponent } from './components/sales-info-screen/sales-i
 import { ToastrModule } from 'ngx-toastr';
 import { LiveDisplayComponent } from './components/sales-info-screen/live-display/live-display.component';
 import { LoginScreenComponent } from './components/login-screen/login-screen.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
+import { MenuScreenComponent } from './components/menu-screen/menu-screen.component';
+import { SideMenuComponent } from './components/menu-screen/side-menu/side-menu.component';
+import { AdminScreenComponent } from './components/admin-screen/admin-screen.component';
+import { FlowerInfoScreenComponent } from './components/flower-info-screen/flower-info-screen.component';
+import { PhotoScreenComponent } from './components/flower-info-screen/photo-screen/photo-screen.component';
+import { TokenInterceptor } from './interceptors/TokenInterceptor';
 
 @NgModule({
   declarations: [
@@ -26,17 +34,25 @@ import { LoginScreenComponent } from './components/login-screen/login-screen.com
     SalesInfoScreenComponent,
     LoginScreenComponent,
     LiveDisplayComponent,
+    MenuScreenComponent,
+    SideMenuComponent,
+    AdminScreenComponent,
+    FlowerInfoScreenComponent,
+    PhotoScreenComponent,
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     AngularSplitModule,
     YouTubePlayerModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

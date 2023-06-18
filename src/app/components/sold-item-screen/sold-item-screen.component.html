@@ -1,11 +1,32 @@
-<div *ngIf="loading == true" class="spinner-border text-primary center_loading" role="status">
+<!-- <div *ngIf="loading == true" class="spinner-border text-primary center_loading">
   <span class="visually-hidden"></span>
-</div>
+</div> -->
 
-<table *ngIf="loading == false" class="table table-bordered depoGiris" style="overflow-x: scroll">
+<!-- <div style="background-color: aqua;"  class="d-flex align-items-center justify-content-center mh-100">
+  <div class="shadow p-4">
+    <div class="spinner-border text-primary"> -->
+      <!-- <span class="visually-hidden"></span> -->
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<div *ngIf="isLoading == true" class="center">
+  <!-- <div class="loader"></div> -->
+  <div class="shadow p-4">
+    <div class="spinner-border text-primary">
+      <span class="visually-hidden"></span>
+    </div>
+  </div>
+</div> 
+
+
+<table
+  *ngIf="isLoading == false"
+  class="table table-bordered depoGiris"
+  style="overflow-x: scroll"
+>
   <thead>
-    <!-- @if (Model.Any())
-        { -->
     <tr>
       <th>UrNo</th>
       <th>CicekKodu</th>
@@ -19,7 +40,6 @@
       <th>OzellikAdi6</th>
       <th>OzellikAdi7</th>
     </tr>
-    <!-- } -->
   </thead>
   <tbody>
     <tr *ngFor="let modelItem of depoGiris">

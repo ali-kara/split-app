@@ -1,17 +1,7 @@
 <div>
   <p class="LiveDisplay">
-    <!-- @if (Model != null)
-        {
-            <label id="lblDurum">@Model.Satis.AliciKodu</label>
-            <br>
-            <label id="lblFiyat">@Model.Satis.SatisFiyat</label>
-
-        }
-        else
-        { -->
-    <label id="lblDurum">999</label>
+    <label id="lblDurum">{{ AliciKodu }}</label>
     <br />
-    <label id="lblFiyat">999.99</label>
-    <!-- } -->
+    <label id="lblFiyat">{{ SatisFiyat }}</label>
   </p>
 </div>
