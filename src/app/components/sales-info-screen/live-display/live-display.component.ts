@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 
 @Component({
   selector: 'app-live-display',
@@ -6,8 +6,8 @@ import { Component, inject } from '@angular/core';
   styleUrls: ['./live-display.component.css'],
 })
 export class LiveDisplayComponent {
-  AliciKodu: any;
-  SatisFiyat: any;
+  @Input() public AliciKodu;
+  @Input() public SatisFiyat;
 
   constructor() {
     this.AliciKodu = '---';

@@ -1,58 +1,49 @@
-<div *ngIf="isLoading == true" class="center">
-  <!-- <div class="loader"></div> -->
-  <div class="shadow p-4">
-    <div class="spinner-border text-primary">
-      <span class="visually-hidden"></span>
-    </div>
-  </div>
-</div> 
-
-
-
-
+<app-loading-screen [isLoading]="isLoading"></app-loading-screen>
 
 <div *ngIf="isLoading == false" class="contaier">
   <div class="row">
-
-<div class="col">
-    <div class="row mx-2 my-3">
-      <table class="table table-bordered table-striped ozelliktablo">
-        <tbody>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi1 }}</td>
-            <td>{{ cicekBilgi?.ozellik1 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi2 }}</td>
-            <td>{{ cicekBilgi?.ozellik2 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi3 }}</td>
-            <td>{{ cicekBilgi?.ozellik3 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi4 }}</td>
-            <td>{{ cicekBilgi?.ozellik4 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi5 }}</td>
-            <td>{{ cicekBilgi?.ozellik5 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi6 }}</td>
-            <td>{{ cicekBilgi?.ozellik6 }}</td>
-          </tr>
-          <tr>
-            <td>{{ cicekBilgi?.ozellikAdi7 }}</td>
-            <td>{{ cicekBilgi?.ozellik7 }}</td>
-          </tr>
-        </tbody>
-      </table>
-        </div>
+    <div class="col">
+      <div class="row mx-2 my-3">
+        <table class="table table-bordered table-striped ozelliktablo">
+          <tbody>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi1 }}</td>
+              <td>{{ cicekBilgi?.ozellik1 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi2 }}</td>
+              <td>{{ cicekBilgi?.ozellik2 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi3 }}</td>
+              <td>{{ cicekBilgi?.ozellik3 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi4 }}</td>
+              <td>{{ cicekBilgi?.ozellik4 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi5 }}</td>
+              <td>{{ cicekBilgi?.ozellik5 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi6 }}</td>
+              <td>{{ cicekBilgi?.ozellik6 }}</td>
+            </tr>
+            <tr>
+              <td>{{ cicekBilgi?.ozellikAdi7 }}</td>
+              <td>{{ cicekBilgi?.ozellik7 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row px-2 py-2">
+        <!-- <div style="width: 100%; height: 70%; margin: 10px"> -->
+        <app-photo-screen></app-photo-screen>
+        <!-- </div> -->
+      </div>
+    </div>
   </div>
-  <div class="col">
-       <div class="row px-2 py-2">
-         <img src="https://picsum.photos/200"/>
-               </div>
-
-              </div>
+</div>

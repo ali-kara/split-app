@@ -1,12 +1,9 @@
 <div [ngStyle]="{ width: getScreenWidth, height: getScreenHeight }">
   <as-split [gutterSize]="3" direction="horizontal">
-   
-   
-   
-   <!-- Sol Sutun -->
+    <!-- Sol Sutun -->
     <as-split-area [size]="50">
       <as-split direction="vertical">
-        <as-split-area [size]="60">
+        <as-split-area [size]="50">
           <as-split [gutterSize]="3" direction="horizontal">
             <as-split-area [size]="50">
               <app-sales-info-screen></app-sales-info-screen>
@@ -14,8 +11,8 @@
             <as-split-area [size]="50"> </as-split-area>
           </as-split>
         </as-split-area>
-        <!-- <as-split-area> </as-split-area> -->
-        <as-split-area [size]="40">
+        <as-split-area [size]="15"> Kalan Kredi </as-split-area>
+        <as-split-area [size]="35">
           <as-split direction="horizontal">
             <as-split-area [size]="30">
               <app-menu-screen></app-menu-screen>
@@ -28,7 +25,6 @@
       </as-split>
     </as-split-area>
 
-
     <!-- Sag Sutun -->
 
     <as-split-area [size]="50">
@@ -36,13 +32,11 @@
         <as-split-area [size]="50">
           <app-video-screen></app-video-screen>
         </as-split-area>
+
         <as-split-area [size]="50">
           <app-sold-item-screen></app-sold-item-screen>
         </as-split-area>
       </as-split>
     </as-split-area>
-
-
-
   </as-split>
 </div>

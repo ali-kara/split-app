@@ -1,6 +1,6 @@
 .depoGiris td,
 .depoGiris tr {
-  font-size: 16px;
+  font-size: 13px;
   font-size: 1vw;
   border-color: black;
   border: black;
@@ -10,45 +10,4 @@
 .isCompleted {
   background: red;
   color: white;
-}
-
-/* .center_loading{
-    position: absolute;
-    top: "50%";
-    left: "50%";
-    margin-top: "-50px";
-    margin-left: "-50px";
-} */
-
-
-/* split-area > div {
-  position: relative;
-  background: red;
-  height: 100%;
-  overflow: auto;
-} */
-
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.loader {
-  border: 10px solid #f3f3f3; 
-  border-top: 10px solid #34db55; 
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }

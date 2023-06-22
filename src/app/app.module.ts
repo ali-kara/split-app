@@ -24,6 +24,8 @@ import { AdminScreenComponent } from './components/admin-screen/admin-screen.com
 import { FlowerInfoScreenComponent } from './components/flower-info-screen/flower-info-screen.component';
 import { PhotoScreenComponent } from './components/flower-info-screen/photo-screen/photo-screen.component';
 import { TokenInterceptor } from './interceptors/TokenInterceptor';
+import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
+import { NoInternetScreenComponent } from './components/shared/no-internet-screen/no-internet-screen.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { TokenInterceptor } from './interceptors/TokenInterceptor';
     AdminScreenComponent,
     FlowerInfoScreenComponent,
     PhotoScreenComponent,
+    LoadingScreenComponent,
+    NoInternetScreenComponent,
   ],
   imports: [
     BrowserModule,

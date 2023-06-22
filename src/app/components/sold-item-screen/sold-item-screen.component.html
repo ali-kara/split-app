@@ -1,25 +1,4 @@
-<!-- <div *ngIf="loading == true" class="spinner-border text-primary center_loading">
-  <span class="visually-hidden"></span>
-</div> -->
-
-<!-- <div style="background-color: aqua;"  class="d-flex align-items-center justify-content-center mh-100">
-  <div class="shadow p-4">
-    <div class="spinner-border text-primary"> -->
-      <!-- <span class="visually-hidden"></span> -->
-    <!-- </div>
-  </div>
-</div> -->
-
-
-<div *ngIf="isLoading == true" class="center">
-  <!-- <div class="loader"></div> -->
-  <div class="shadow p-4">
-    <div class="spinner-border text-primary">
-      <span class="visually-hidden"></span>
-    </div>
-  </div>
-</div> 
-
+<app-loading-screen [isLoading]="isLoading"></app-loading-screen>
 
 <table
   *ngIf="isLoading == false"
