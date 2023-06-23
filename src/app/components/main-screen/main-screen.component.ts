@@ -20,8 +20,8 @@ export class MainScreenComponent {
     this.getScreenHeight = window.innerHeight + 'px';
 
 
-    this.livedisplay?.AliciKodu = "999";
-    this.livedisplay?.SatisFiyat = "423.42";
+    //this.livedisplay?.AliciKodu = "999";
+    //this.livedisplay?.SatisFiyat = "423.42";
   }
 
   @HostListener('window:resize', ['$event'])
