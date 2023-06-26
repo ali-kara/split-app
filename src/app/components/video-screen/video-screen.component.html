@@ -1,6 +1,9 @@
 <youtube-player
+  (playerVars)="(playervars)"
+  [width]="640"
+  [height]="320"
   [videoId]="videoId"
-  (playerVars)="playervars"
-  (ready)="initPlayer($event)"
+  (ready)="onReady()"
+  (stateChange)="onStateChange($event)"
 >
 </youtube-player>

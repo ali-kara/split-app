@@ -21,7 +21,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let modelItem of depoGiris">
+    <tr
+      *ngFor="let modelItem of depoGiris"
+      class="{ isCompleted: modelItem.satisDurum == true }"
+    >
       <td>
         {{ modelItem.urNo }}
       </td>

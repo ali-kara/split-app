@@ -26,6 +26,7 @@ import { PhotoScreenComponent } from './components/flower-info-screen/photo-scre
 import { TokenInterceptor } from './interceptors/TokenInterceptor';
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 import { NoInternetScreenComponent } from './components/shared/no-internet-screen/no-internet-screen.component';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,15 +42,14 @@ import { NoInternetScreenComponent } from './components/shared/no-internet-scree
     AdminScreenComponent,
     FlowerInfoScreenComponent,
     PhotoScreenComponent,
-    LoadingScreenComponent,
-    NoInternetScreenComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     AngularSplitModule,
-    YouTubePlayerModule,
+    YouTubePlayerModule,    
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
