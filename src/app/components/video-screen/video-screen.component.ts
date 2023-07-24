@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { every } from 'lodash';
 import { BaseService } from 'src/app/api/BaseService';
@@ -11,56 +17,43 @@ import { VideoBilgi } from 'src/app/models/VideoBilgi';
   templateUrl: './video-screen.component.html',
   styleUrls: ['./video-screen.component.css'],
 })
-export class VideoScreenComponent extends BaseService{
-  @ViewChild('player') player: YouTubePlayer | undefined;
+export class VideoScreenComponent extends BaseService {
+  video: VideoService = inject(VideoService);
 
-  video : VideoService = inject(VideoService);
+  @ViewChild('player') player: any;
 
-  videoBilgi : VideoBilgi | undefined;
-  videoId: string | undefined = "zo9dJFo8H8g";
-  // player!: YT.Player;
+  videoBilgi: VideoBilgi | undefined;
+  videoId: string | undefined = 'zo9dJFo8H8g';
   apiLoaded = false;
-
 
   playervars = {
     // enablejsapi: 1,
-    // modestbranding: 1,
-    controls: 0,
-    autoplay: 1,
-    origin: 'http://localhost:4200' 
-    // fs:1,
-    // iv_load_policy: 3,
-    // rel: 0,
-    // showinfo: 0
+    modestbranding: 1,
+    controls: '0',
+    autostart: '1',
+    origin: 'http://localhost:4200',
+    fs: 1,
+    iv_load_policy: 3,
+    rel: 0,
+    showinfo: 0,
   };
 
+  ngOnInit() {
+    this.getStreamInfo();
 
-  ngOnInit(): void {
-    this.getStreamInfo();  
-    
-    
     if (!this.apiLoaded) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.body.appendChild(tag);
-        this.apiLoaded = true;
-               console.log("api loaded");
-
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.apiLoaded = true;
     }
-
-    
   }
 
-
-  getStreamInfo()
-  {
+  getStreamInfo() {
     this.video.getStreamInfo().subscribe(
       (response) => {
         this.videoBilgi = response;
         this.videoId = response.link;
-        this.isLoading = false;
-                console.log(response);
-
       },
       async (error) => {
         console.log(error);
@@ -70,26 +63,19 @@ export class VideoScreenComponent extends BaseService{
     );
   }
 
-    // Autoplay
   onReady() {
-   
-       console.log("on ready");
-
-    this.resize();    
-    // this.player.mute();         
-    // this.player.playVideo();  
-    
-          this.player?.playVideo();  
-
+    this.resize();
+    console.log(this.player);
+    // this.player.mute();
+    this.player.playVideo();
   }
 
   // Loop
-  onStateChange(event : any) {
-    console.log("state change", event);
-    
-    if (event.data === 0) {
-      this.player?.playVideo();  
-    }
+  onStateChange(event: any) {
+    // console.log("state change", event);
+    // if (event.data === 0) {
+    //   // this.youtubePlayer?.nativeElement.playVideo();
+    // }
   }
 
   resize() {

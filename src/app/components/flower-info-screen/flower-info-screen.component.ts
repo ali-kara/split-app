@@ -28,7 +28,6 @@ export class FlowerInfoScreenComponent extends BaseService {
         await this.delay(10000);
         this.GetFlowerInfo();
       }
-
-      );
+    );
   }
 }

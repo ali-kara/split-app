@@ -7,19 +7,20 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/api/AccountService';
-import { NotificationService } from 'src/app/services/NotificationService';
+import { BaseService } from 'src/app/api/BaseService';
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
   styleUrls: ['./login-screen.component.css'],
 })
-export class LoginScreenComponent {
+export class LoginScreenComponent extends BaseService {
   constructor(
     private router: Router,
-    private alert: NotificationService,
     private formBuilder: FormBuilder,
     private accountService: AccountService
-  ) {}
+  ) {
+    super();
+  }
 
   form!: FormGroup;
   submitted = false;
@@ -56,9 +57,7 @@ export class LoginScreenComponent {
       this.f['password'].value
     );
 
-    console.log(a);
-
-    this.alert.showSuccess('Success', 'Logged In');
+    this.toastr.showSuccess('Success', 'Logged In');
 
     this.router.navigate(['home']);
   }

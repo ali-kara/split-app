@@ -27,6 +27,7 @@ import { TokenInterceptor } from './interceptors/TokenInterceptor';
 import { LoadingScreenComponent } from './components/shared/loading-screen/loading-screen.component';
 import { NoInternetScreenComponent } from './components/shared/no-internet-screen/no-internet-screen.component';
 import { SharedModule } from './components/shared/shared.module';
+import { ItemInfoScreenComponent } from './components/sales-info-screen/item-info-screen/item-info-screen.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { SharedModule } from './components/shared/shared.module';
     AdminScreenComponent,
     FlowerInfoScreenComponent,
     PhotoScreenComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    ItemInfoScreenComponent,
+    NoInternetScreenComponent
   ],
   imports: [
     BrowserModule,

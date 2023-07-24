@@ -6,7 +6,7 @@ import { NoInternetScreenComponent } from './no-internet-screen/no-internet-scre
 
 
 @NgModule({
-  declarations: [NoInternetScreenComponent],
+  declarations: [],
   imports: [
     CommonModule
   ]

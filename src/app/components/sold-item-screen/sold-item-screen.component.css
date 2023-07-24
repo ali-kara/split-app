@@ -11,3 +11,9 @@
   background: red;
   color: white;
 }
+
+.isCompleted {
+  background: red;
+  color: white;
+  background-color: red;
+}
