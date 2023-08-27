@@ -2,18 +2,6 @@
 .depoGiris tr {
   font-size: 13px;
   font-size: 1vw;
-  border-color: black;
-  border: black;
-  font-weight: bold;
-}
-
-.depoGiris .isCompleted {
-  background: red;
-  color: white;
-}
-
-.isCompleted {
-  background: red;
-  color: white;
-  background-color: red;
+  font-weight: 500;
+  
 }

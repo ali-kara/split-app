@@ -2,32 +2,27 @@
 
 <table
   *ngIf="isLoading == false"
-  class="table table-bordered depoGiris"
+  class="table table-bordered table-striped table-hover depoGiris"
   style="overflow-x: scroll"
 >
   <thead>
     <tr>
-      <th>UrNo</th>
-      <th>CicekKodu</th>
       <th>Cinsi</th>
-      <th>D_SiraNo</th>
-      <th>OzellikAdi1</th>
-      <th>OzellikAdi2</th>
-      <th>OzellikAdi3</th>
-      <th>OzellikAdi4</th>
-      <th>OzellikAdi5</th>
-      <th>OzellikAdi6</th>
-      <th>OzellikAdi7</th>
+      <th>Depo No</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi1 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi2 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi3 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi4 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi5 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi6 }}</th>
+      <th>{{ depoGiris?.at(0)?.ozellikAdi7 }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let modelItem of depoGiris" ngClass="isCompleted">
-      <td>
-        {{ modelItem.urNo }}
-      </td>
-      <td>
-        {{ modelItem.cicekKodu }}
-      </td>
+    <tr
+      *ngFor="let modelItem of depoGiris"
+      [ngClass]="modelItem.satisDurum == true ? 'table-success' : 'table-light'"
+    >
       <td>
         {{ modelItem.cinsi }}
       </td>
