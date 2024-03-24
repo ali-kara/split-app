@@ -1,4 +1,6 @@
-<app-loading-screen [isLoading]="isLoading"></app-loading-screen>
+<!-- <app-loading-screen [isLoading]="isLoading"></app-loading-screen> -->
+
+<button (click)="askForAudioPermission()">Ask for Audio Permission</button>
 
 <div *ngIf="isLoading == false" class="contaier">
   <div class="row">

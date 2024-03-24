@@ -30,4 +30,18 @@ export class FlowerInfoScreenComponent extends BaseService {
       }
     );
   }
+
+  askForAudioPermission() {
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then((stream) => {
+        // User granted permission, you can proceed with audio playback logic here
+        console.log('Audio permission granted');
+        stream.getTracks().forEach((track) => track.stop()); // Stop the stream as it's no longer needed
+      })
+      .catch((error) => {
+        // User denied permission or an error occurred
+        console.error('Error getting audio permission:', error);
+      });
+  }
 }

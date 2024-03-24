@@ -9,20 +9,17 @@ import { BaseService } from './BaseService';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService extends BaseService {
- 
- 
   getAuthToken() {
-    return localStorage.getItem('token')
+    return localStorage.getItem('token');
   }
-  
-  
+
   private userSubject: BehaviorSubject<Users | null>;
   apiUrl: string = API_CONSTANT.API_BASE_URL + 'User/Login';
   // httpClient: HttpClient = inject(HttpClient);
 
   constructor(private router: Router) {
     super();
-    
+
     this.userSubject = new BehaviorSubject(
       JSON.parse(localStorage.getItem('user')!)
     );
@@ -73,16 +70,25 @@ export class AccountService extends BaseService {
             console.log('Başarısız');
             // return false;
           }
-        },
-        (error) => {
-          console.log(error);
-          // return false;
         }
+        //     .pipe(
+        // map((user: any) => {
+        //   // login successful if there's a jwt token in the response
+        //   // if (user && user.token) {
+        //   //   // store user details and jwt token in local storage to keep user logged in between page refreshes
+        //   //   localStorage.setItem('currentUser', JSON.stringify(user));
+        //   // }
+        //   localStorage.setItem('currentUser', JSON.stringify(user));
+
+        //   return user;
+        // }
+        // (error) => {
+        //   console.log(error);
+        //   // return false;
+        // }
       );
   }
 
-
-  
   logout() {
     localStorage.removeItem('currentUser');
   }
