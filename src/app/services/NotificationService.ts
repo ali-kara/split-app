@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -23,4 +23,3 @@ export class NotificationService {
     this.toastr.warning(message, title);
   }
 }
-

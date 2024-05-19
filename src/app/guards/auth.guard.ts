@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NoPreloading, Router } from '@angular/router';
 import { NotificationService } from '../services/NotificationService';
 
 export const AuthGuard = () => {
@@ -8,6 +8,8 @@ export const AuthGuard = () => {
 
   if (localStorage.getItem('currentUser')) {
     // logged in so return true
+
+    notify.showSuccess(localStorage.getItem('currentUser')?.toString(), '');
     return true;
   }
 

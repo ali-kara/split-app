@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -27,19 +28,28 @@ export class LoginScreenComponent extends BaseService {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-
-    this.form = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(40),
+        ],
+      ],
     });
   }
 
   // convenience getter for easy access to form fields
 
-  get f() {
+  get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
 
@@ -48,17 +58,25 @@ export class LoginScreenComponent extends BaseService {
   }
 
   login() {
+    this.submitted = true;
+
     if (this.form.invalid) {
       return;
     }
 
-    var a = this.accountService.login(
-      this.f['username'].value,
-      this.f['password'].value
-    );
+    var a = this.accountService
+      .login(this.f['username'].value, this.f['password'].value)
+      .subscribe((data) => {
+        if (data.success == true) {
+          localStorage.setItem('currentUser', JSON.stringify(data.data));
+          console.log(JSON.stringify(data.data));
 
-    this.toastr.showSuccess('Success', 'Logged In');
+          this.toastr.showSuccess('Success', 'Logged In');
 
-    this.router.navigate(['home']);
+          this.router.navigate(['home']);
+        } else {
+          this.toastr.showError('Error', data.message);
+        }
+      });
   }
 }

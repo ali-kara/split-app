@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, map } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map } from 'rxjs';
 import { Users } from '../models/Users';
 import { API_CONSTANT } from '../core/api-contants';
 import { BaseResponse } from '../models/BaseResponse';
@@ -29,64 +29,30 @@ export class AccountService extends BaseService {
     return this.userSubject.value;
   }
 
-  // login(AliciAdi: string, Parola: string): any {
-  //   debugger;
+  login(AliciAdi: string, Parola: string): Observable<BaseResponse> {
+    return this.httpClient.post<BaseResponse>(this.apiUrl, {
+      userfield: AliciAdi,
+      passwordfield: Parola,
+    });
 
-  //   return this.httpClient
-  //     .post<Users>(this.apiUrl, {
-  //       userfield: AliciAdi,
-  //       passwordfield: Parola,
-  //     })
-  //     .pipe(
-  //       map((user: any) => {
-  //         // login successful if there's a jwt token in the response
-  //         // if (user && user.token) {
-  //         //   // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //         //   localStorage.setItem('currentUser', JSON.stringify(user));
-  //         // }
-  //         localStorage.setItem('currentUser', JSON.stringify(user));
+    // return this.httpClient
+    //   .post<BaseResponse>(this.apiUrl, {
+    //     userfield: AliciAdi,
+    //     passwordfield: Parola,
+    //   })
+    //   .subscribe((data) => {
+    //     console.log(data);
 
-  //         return user;
-  //       })
-  //       // catchError(this.handleError)
-  //     );
-  // }
+    //     if (data.success == true) {
+    //       localStorage.setItem('currentUser', JSON.stringify(data.data));
+    //       console.log(JSON.stringify(data.data));
 
-  login(AliciAdi: string, Parola: string) {
-    return this.httpClient
-      .post<BaseResponse>(this.apiUrl, {
-        userfield: AliciAdi,
-        passwordfield: Parola,
-      })
-      .subscribe(
-        (data) => {
-          console.log(data);
-
-          if (data.success == true) {
-            localStorage.setItem('currentUser', JSON.stringify(data.data));
-
-            // return true;
-          } else {
-            console.log('Başarısız');
-            // return false;
-          }
-        }
-        //     .pipe(
-        // map((user: any) => {
-        //   // login successful if there's a jwt token in the response
-        //   // if (user && user.token) {
-        //   //   // store user details and jwt token in local storage to keep user logged in between page refreshes
-        //   //   localStorage.setItem('currentUser', JSON.stringify(user));
-        //   // }
-        //   localStorage.setItem('currentUser', JSON.stringify(user));
-
-        //   return user;
-        // }
-        // (error) => {
-        //   console.log(error);
-        //   // return false;
-        // }
-      );
+    //       // return true;
+    //     } else {
+    //       console.log('Başarısız');
+    //       // return false;
+    //     }
+    //   });
   }
 
   logout() {

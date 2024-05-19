@@ -26,30 +26,37 @@
                     alt=""
                   />
                 </a>
-                <p class="text-center">Canlı Satış Sistemi</p>
+                <h4 class="text-center">Canlı Satış Sistemi</h4>
                 <form [formGroup]="form" (ngSubmit)="login()">
                   <div class="mb-3">
-                    <!-- <label for="exampleInputEmail1" class="form-label"
-                      >Kullanıcı Adı</label
-                    > -->
-                    <input
-                      type="text"
-                      formControlName="username"
-                      placeholder="Kullanıcı Adınız"
-                      class="form-control"
-                      [ngClass]="{
-                        'is-invalid': submitted && f['username'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="submitted && f['username'].errors"
-                      class="invalid-feedback"
-                    >
-                      <!-- <div *ngIf="f['username'].errors.['required']">
-                        Username is required
-                      </div> -->
+                    <div class="form-group">
+                      <!-- <label>Username</label> -->
+                      <input
+                        type="text"
+                        placeholder="Username"
+                        formControlName="username"
+                        class="form-control"
+                        [ngClass]="{
+                          'is-invalid': submitted && f['username'].errors
+                        }"
+                      />
+                      <div
+                        *ngIf="submitted && f['username'].errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f['username'].errors['required']">
+                          Username is required
+                        </div>
+                        <div *ngIf="f['username'].errors['minlength']">
+                          Username must be at least 6 characters
+                        </div>
+                        <div *ngIf="f['username'].errors['maxlength']">
+                          Username must not exceed 20 characters
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                   <div class="mb-4">
                     <!-- <label for="exampleInputPassword1" class="form-label"
                       >Parola</label
