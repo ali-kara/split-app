@@ -4,7 +4,8 @@ import { DepoGirisService } from 'src/app/api/DepoGirisService';
 import { BaseService } from 'src/app/api/BaseService';
 
 @Component({
-  selector: 'app-sold-item-screen',
+  standalone: false,
+selector: 'app-sold-item-screen',
   templateUrl: './sold-item-screen.component.html',
   styleUrls: ['./sold-item-screen.component.css'],
 })
@@ -84,3 +85,4 @@ export enum KEY_CODE {
   RIGHT_ARROW = 39,
   LEFT_ARROW = 37,
 }
+

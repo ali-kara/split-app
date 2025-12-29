@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/api/AccountService';
 import { BaseService } from 'src/app/api/BaseService';
 @Component({
-  selector: 'app-login-screen',
+  standalone: false,
+selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
   styleUrls: ['./login-screen.component.css'],
 })
@@ -80,3 +81,4 @@ export class LoginScreenComponent extends BaseService {
       });
   }
 }
+

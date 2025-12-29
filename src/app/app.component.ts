@@ -4,7 +4,8 @@ import { BaseService } from './api/BaseService';
 import { NetworkConnectionService } from './services/NetworkConnectionService';
 
 @Component({
-  selector: 'app-root',
+  standalone: false,
+selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

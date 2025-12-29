@@ -4,7 +4,8 @@ import { LiveDisplayComponent } from '../sales-info-screen/live-display/live-dis
 import { BaseService } from 'src/app/api/BaseService';
 
 @Component({
-  selector: 'app-main-screen',
+  standalone: false,
+selector: 'app-main-screen',
   templateUrl: './main-screen.component.html',
   styleUrls: ['./main-screen.component.css'],
 })
@@ -14,3 +15,4 @@ export class MainScreenComponent extends BaseService {
     | LiveDisplayComponent
     | undefined;
 }
+

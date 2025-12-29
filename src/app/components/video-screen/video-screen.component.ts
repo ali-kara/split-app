@@ -13,7 +13,8 @@ import { API_CONSTANT } from 'src/app/core/api-contants';
 import { VideoBilgi } from 'src/app/models/VideoBilgi';
 
 @Component({
-  selector: 'app-video-screen',
+  standalone: false,
+selector: 'app-video-screen',
   templateUrl: './video-screen.component.html',
   styleUrls: ['./video-screen.component.css'],
 })
@@ -91,3 +92,4 @@ export class VideoScreenComponent extends BaseService {
     this.videoId = videoId;
   }
 }
+

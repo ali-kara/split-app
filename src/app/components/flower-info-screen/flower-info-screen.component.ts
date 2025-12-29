@@ -4,7 +4,8 @@ import { FlowerInfoService } from 'src/app/api/FlowerInfoService';
 import { Cicek } from 'src/app/models/Cicek';
 
 @Component({
-  selector: 'app-flower-info-screen',
+  standalone: false,
+selector: 'app-flower-info-screen',
   templateUrl: './flower-info-screen.component.html',
   styleUrls: ['./flower-info-screen.component.css'],
 })
@@ -45,3 +46,4 @@ export class FlowerInfoScreenComponent extends BaseService {
       });
   }
 }
+

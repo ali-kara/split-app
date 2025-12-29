@@ -1,7 +1,8 @@
 import { Component, Input, inject } from '@angular/core';
 
 @Component({
-  selector: 'app-live-display',
+  standalone: false,
+selector: 'app-live-display',
   templateUrl: './live-display.component.html',
   styleUrls: ['./live-display.component.css'],
 })
@@ -14,3 +15,4 @@ export class LiveDisplayComponent {
     this.SatisFiyat = '---.--';
   }
 }
+

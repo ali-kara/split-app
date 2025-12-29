@@ -3,7 +3,8 @@ import { LoginScreenComponent } from '../login-screen/login-screen.component';
 import { VideoScreenComponent } from '../video-screen/video-screen.component';
 
 @Component({
-  selector: 'app-menu-screen',
+  standalone: false,
+selector: 'app-menu-screen',
   templateUrl: './menu-screen.component.html',
   styleUrls: ['./menu-screen.component.css'],
 })
@@ -27,3 +28,4 @@ export class MenuScreenComponent {
 
   openChat() {}
 }
+

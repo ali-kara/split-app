@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
@@ -49,7 +49,6 @@ import { ItemInfoScreenComponent } from './components/sales-info-screen/item-inf
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     AngularSplitModule,
     YouTubePlayerModule,    
@@ -58,6 +57,7 @@ import { ItemInfoScreenComponent } from './components/sales-info-screen/item-inf
     ToastrModule.forRoot(),
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
